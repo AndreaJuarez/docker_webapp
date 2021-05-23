@@ -1,15 +1,13 @@
 import web
 
 urls = (
-    '/(.*)', 'hello'
+    '/', 'mvc.controllers.index.Index',
+
+    '/insert', 'mvc.controllers.herramientas.docker.Docker',
+    '/list', 'mvc.controllers.herramientas.ubuntu.List',
 )
 app = web.application(urls, globals())
 
-class hello:
-    def GET(self, name):
-        if not name:
-            name = 'World'
-        return 'Hello, ' + name + '!'
 
 if __name__ == "__main__":
     app.run()
